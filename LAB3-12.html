@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Job Skills Validation</title>
+
+<script>
+function validateSkills()
+{
+    var skills = document.getElementsByName("skill");
+    var selectedSkills = [];
+    
+    for(var i = 0; i < skills.length; i++)
+    {
+        if(skills[i].checked)
+        {
+            selectedSkills.push(skills[i].value);
+        }
+    }
+
+    if(selectedSkills.length < 3)
+    {
+        document.getElementById("result").innerHTML = "Error: Please select at least 3 skills.";
+    }
+    else
+    {
+        document.getElementById("result").innerHTML = 
+        "Selected Skills: " + selectedSkills.join(", ");
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Job Skills Form</h2>
+
+<form>
+
+<input type="checkbox" name="skill" value="Java"> Java <br>
+<input type="checkbox" name="skill" value="Python"> Python <br>
+<input type="checkbox" name="skill" value="JavaScript"> JavaScript <br>
+<input type="checkbox" name="skill" value="C++"> C++ <br>
+<input type="checkbox" name="skill" value="HTML"> HTML <br><br>
+
+<button type="button" onclick="validateSkills()">Submit</button>
+
+</form>
+
+<p id="result"></p>
+
+</body>
+</html>
+
+

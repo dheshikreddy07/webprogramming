@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Text Styling Application</title>
+
+<style>
+.italic{
+    font-style: italic;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.smallcaps{
+    font-variant: small-caps;
+}
+</style>
+
+<script>
+function applyStyle(styleType)
+{
+    var text = document.getElementById("message");
+    text.className = styleType;
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Text Styling Application</h2>
+
+<fieldset>
+<legend>Choose Text Style</legend>
+
+<button type="button" onclick="applyStyle('italic')">Italic</button>
+<button type="button" onclick="applyStyle('bold')">Bold</button>
+<button type="button" onclick="applyStyle('smallcaps')">Small Caps</button>
+
+</fieldset>
+
+<br>
+
+<p id="message">This is a sample message for text styling.</p>
+
+</body>
+</html>
+
+
+

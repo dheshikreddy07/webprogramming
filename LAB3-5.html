@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Calculator</title>
+
+<script>
+function calculate(operation)
+{
+    var num1 = parseFloat(document.getElementById("num1").value);
+    var num2 = parseFloat(document.getElementById("num2").value);
+    var result;
+
+    switch(operation)
+    {
+        case "add":
+            result = num1 + num2;
+            break;
+
+        case "sub":
+            result = num1 - num2;
+            break;
+
+        case "mul":
+            result = num1 * num2;
+            break;
+
+        case "div":
+            if(num2 == 0)
+            {
+                result = "Cannot divide by zero";
+            }
+            else
+            {
+                result = num1 / num2;
+            }
+            break;
+    }
+
+    document.getElementById("result").innerHTML = "Result: " + result;
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Simple Calculator</h2>
+
+Number 1:
+<input type="number" id="num1" step="any"><br><br>
+
+Number 2:
+<input type="number" id="num2" step="any"><br><br>
+
+<button onclick="calculate('add')">Add</button>
+<button onclick="calculate('sub')">Subtract</button>
+<button onclick="calculate('mul')">Multiply</button>
+<button onclick="calculate('div')">Divide</button>
+
+<p id="result"></p>
+
+</body>
+</html>
+
+

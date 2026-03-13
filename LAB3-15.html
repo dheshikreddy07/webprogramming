@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamic Font Customization Tool</title>
+
+<script>
+function changeFontSize()
+{
+    var size = document.getElementById("size").value;
+    document.getElementById("text").style.fontSize = size + "px";
+}
+
+function changeTextColor()
+{
+    var color = document.getElementById("textColor").value;
+    document.getElementById("text").style.color = color;
+}
+
+function changeBackground()
+{
+    var bg = document.getElementById("bgColor").value;
+    document.getElementById("text").style.backgroundColor = bg;
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Dynamic Font Customization Tool</h2>
+
+<fieldset>
+<legend>Font Controls</legend>
+
+Font Size:
+<input type="range" id="size" min="10" max="60" value="20" oninput="changeFontSize()">
+<br><br>
+
+Text Color:
+<input type="color" id="textColor" onchange="changeTextColor()">
+<br><br>
+
+Background Color:
+<input type="color" id="bgColor" onchange="changeBackground()">
+
+</fieldset>
+
+<br>
+
+<p id="text">Customize this text using the controls above.</p>
+
+</body>
+</html>
+
+

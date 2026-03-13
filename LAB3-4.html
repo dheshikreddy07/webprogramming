@@ -1,0 +1,43 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Area of Rectangle</title>
+
+<script>
+function calculateArea()
+{
+    // Integer values
+    var lengthValue = 10;
+    var widthValue = 5;
+    var areaResult = lengthValue * widthValue;
+
+    // Floating point values
+    lengthValue = 10.5;
+    widthValue = 5.2;
+    var floatAreaResult = lengthValue * widthValue;
+
+    document.getElementById("result").innerHTML =
+    "Area using integers: " + areaResult +
+    "<br>Area using floating values: " + floatAreaResult;
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Area of Rectangle Calculation</h2>
+
+<button onclick="calculateArea()">Calculate Area</button>
+
+<p id="result"></p>
+
+</body>
+</html>
+
+

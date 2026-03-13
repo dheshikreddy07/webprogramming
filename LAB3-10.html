@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkbox Selection Counter</title>
+
+<script>
+function countSubjects()
+{
+    var subjects = document.getElementsByName("subject");
+    var selectedSubjects = [];
+    var count = 0;
+
+    for(var i = 0; i < subjects.length; i++)
+    {
+        if(subjects[i].checked)
+        {
+            selectedSubjects.push(subjects[i].value);
+            count++;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+    "Selected Subjects Count: " + count + "<br>Subjects: " + selectedSubjects.join(", ");
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Select Subjects</h2>
+
+<input type="checkbox" name="subject" value="Math"> Math <br>
+<input type="checkbox" name="subject" value="Physics"> Physics <br>
+<input type="checkbox" name="subject" value="Chemistry"> Chemistry <br>
+<input type="checkbox" name="subject" value="Computer Science"> Computer Science <br><br>
+
+<button onclick="countSubjects()">Show Selected Subjects</button>
+
+<p id="result"></p>
+
+</body>
+</html>
+
+
+

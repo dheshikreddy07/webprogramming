@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Information System</title>
+
+<style>
+body{
+    font-family: Arial;
+    background-color: #f2f2f2;
+}
+
+h2{
+    text-align:center;
+}
+
+table{
+    border-collapse: collapse;
+    width:60%;
+    margin-top:20px;
+}
+
+table, th, td{
+    border:1px solid black;
+    padding:8px;
+}
+
+button{
+    padding:8px;
+    margin-top:10px;
+}
+</style>
+
+<script>
+
+var students = [];   // global array
+
+function Student(name, reg, dept)
+{
+    this.name = name;
+    this.reg = reg;
+    this.dept = dept;
+
+    this.getDetails = function()
+    {
+        return "<tr><td>"+this.name+"</td><td>"+this.reg+"</td><td>"+this.dept+"</td></tr>";
+    }
+}
+
+function addStudent(form)
+{
+    var name = form.elements["name"].value;
+    var reg = form.elements["reg"].value;
+    var dept = form.elements["dept"].value;
+
+    var studentObj = new Student(name, reg, dept);
+
+    students.push(studentObj);
+
+    displayStudents();
+
+    form.reset();
+    form.elements["name"].focus();
+}
+
+function displayStudents()
+{
+    var tableContent = "<table><tr><th>Name</th><th>Register No</th><th>Department</th></tr>";
+
+    for(var i=0;i<students.length;i++)
+    {
+        tableContent += students[i].getDetails();
+    }
+
+    tableContent += "</table>";
+
+    document.getElementById("output").innerHTML = tableContent;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Student Information System</h2>
+
+<form>
+
+Name:
+<input type="text" name="name"><br><br>
+
+Register No:
+<input type="text" name="reg"><br><br>
+
+Department:
+<input type="text" name="dept"><br><br>
+
+<button type="button" onclick="addStudent(this.form)">Add Student</button>
+
+<button type="reset">Reset</button>
+
+</form>
+
+<div id="output"></div>
+
+</body>
+</html>
+
+
+
+

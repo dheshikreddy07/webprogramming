@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Order Form</title>
+
+<script>
+function calculateTotal()
+{
+    var items = document.querySelectorAll("input[type='checkbox']");
+    var total = 0;
+
+    for (var item of items)
+    {
+        if(item.checked)
+        {
+            total = total + parseFloat(item.value);
+        }
+    }
+
+    document.getElementById("result").innerHTML = "Total Price: ₹" + total;
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Product Order Form</h2>
+
+<form>
+
+<fieldset>
+<legend>Electronics</legend>
+
+<input type="checkbox" value="15000"> Laptop (₹15000)<br>
+<input type="checkbox" value="8000"> Tablet (₹8000)<br>
+<input type="checkbox" value="5000"> Mobile Phone (₹5000)<br>
+
+</fieldset>
+
+<br>
+
+<fieldset>
+<legend>Accessories</legend>
+
+<input type="checkbox" value="500"> Headphones (₹500)<br>
+<input type="checkbox" value="300"> Mouse (₹300)<br>
+<input type="checkbox" value="700"> Keyboard (₹700)<br>
+
+</fieldset>
+
+<br>
+
+<button type="button" onclick="calculateTotal()">Calculate Total</button>
+
+</form>
+
+<p id="result"></p>
+
+</body>
+</html>
+
+
+
+

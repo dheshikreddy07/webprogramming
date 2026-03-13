@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Email Address Generator</title>
+
+<script>
+function generateEmail(form)
+{
+    var fname = form.elements["firstname"].value;
+    var lname = form.elements["lastname"].value;
+
+    var email = fname + "." + lname + "@park.edu";
+
+    document.getElementById("result").innerHTML = "Generated Email: " + email;
+
+    form.reset();
+    form.elements["firstname"].focus();
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Email Address Generator</h2>
+
+<form>
+First Name:
+<input type="text" name="firstname"><br><br>
+
+Last Name:
+<input type="text" name="lastname"><br><br>
+
+<input type="button" value="Generate Email" onclick="generateEmail(this.form)">
+</form>
+
+<p id="result"></p>
+
+</body>
+</html>
+
+
+
+

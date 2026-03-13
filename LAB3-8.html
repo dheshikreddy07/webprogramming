@@ -1,0 +1,45 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Multiplication Table using Do-While Loop</title>
+
+<script>
+function printTable()
+{
+    var num = parseInt(document.getElementById("number").value);
+    var i = 1;
+    var output = "";
+
+    do
+    {
+        output = output + num + " x " + i + " = " + (num * i) + "<br>";
+        i++;
+    }
+    while(i <= 10);
+
+    document.getElementById("result").innerHTML = output;
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Multiplication Table Generator</h2>
+
+Enter a Number:
+<input type="text" id="number"><br><br>
+
+<button onclick="printTable()">Show Table</button>
+
+<p id="result"></p>
+
+</body>
+</html>
+

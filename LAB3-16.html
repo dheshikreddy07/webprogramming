@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Overlapping Image Gallery</title>
+
+<style>
+.gallery{
+    position: relative;
+    width: 500px;
+    height: 300px;
+}
+
+.gallery img{
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    cursor: pointer;
+    border: 2px solid black;
+}
+</style>
+
+<script>
+var topIndex = 1;   // global variable to track highest z-index
+
+function bringToFront(img)
+{
+    img.style.zIndex = ++topIndex;   // prefix increment
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Reg No: 24BCT0238</h3>
+<h3>Name: C.DHESHIK REDDY</h3>
+
+<h2>Overlapping Image Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://picsum.photos/200/150?1"
+style="top:10px; left:10px;"
+onclick="bringToFront(this)">
+
+<img src="https://picsum.photos/200/150?2"
+style="top:50px; left:80px;"
+onclick="bringToFront(this)">
+
+<img src="https://picsum.photos/200/150?3"
+style="top:90px; left:150px;"
+onclick="bringToFront(this)">
+
+</div>
+
+</body>
+</html>
+
+
