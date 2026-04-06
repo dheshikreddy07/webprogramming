@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        #preview {
+            margin-top: 20px;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>C. DHESHIK REDDY</h2>
+    <h3>REG NO: 24BCT0238</h3>
+
+    <h1>Image Gallery</h1>
+
+    <!-- Preview -->
+    <img id="preview" src="https://picsum.photos/300" alt="Preview">
+
+    <!-- Thumbnails -->
+    <div class="gallery">
+        <img src="https://picsum.photos/id/101/100" onclick="showImage(this.src)">
+        <img src="https://picsum.photos/id/102/100" onclick="showImage(this.src)">
+        <img src="https://picsum.photos/id/103/100" onclick="showImage(this.src)">
+        <img src="https://picsum.photos/id/104/100" onclick="showImage(this.src)">
+    </div>
+
+    <script>
+        function showImage(src) {
+            document.getElementById("preview").src = src;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
