@@ -1,0 +1,98 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country Explorer</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            margin-top: 30px;
+        }
+
+        input {
+            padding: 8px;
+            width: 250px;
+        }
+
+        button {
+            padding: 8px 12px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card {
+            border: 1px solid gray;
+            padding: 10px;
+            width: 220px;
+            text-align: left;
+        }
+
+        .card img {
+            width: 100%;
+            height: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>C. DHESHIK REDDY</h2>
+    <h3>REG NO: 24BCT0238</h3>
+
+    <h1>Country Explorer</h1>
+
+    <input type="text" id="country" placeholder="Enter country name">
+    <button onclick="searchCountry()">Search</button>
+
+    <div class="container" id="result"></div>
+
+    <script>
+        async function searchCountry() {
+            let name = document.getElementById("country").value;
+
+            if (name === "") {
+                alert("Enter country name");
+                return;
+            }
+
+            let url = `https://restcountries.com/v3.1/name/${name}`;
+
+            try {
+                let response = await fetch(url);
+                let data = await response.json();
+
+                let output = "";
+
+                data.forEach(c => {
+                    output += `
+                        <div class="card">
+                            <img src="${c.flags.png}">
+                            <h3>${c.name.common}</h3>
+                            <p><b>Capital:</b> ${c.capital ? c.capital[0] : 'N/A'}</p>
+                            <p><b>Population:</b> ${c.population}</p>
+                            <p><b>Region:</b> ${c.region}</p>
+                        </div>
+                    `;
+                });
+
+                document.getElementById("result").innerHTML = output;
+
+            } catch (error) {
+                document.getElementById("result").innerHTML = "Country not found";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
