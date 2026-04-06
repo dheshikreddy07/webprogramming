@@ -1,0 +1,84 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Dashboard</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            margin-top: 40px;
+        }
+
+        input {
+            padding: 8px;
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 12px;
+        }
+
+        .weather-box {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid gray;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>C. DHESHIK REDDY</h2>
+    <h3>REG NO: 24BCT0238</h3>
+
+    <h1>Weather Dashboard</h1>
+
+    <input type="text" id="city" placeholder="Enter city name">
+    <button onclick="getWeather()">Search</button>
+
+    <div class="weather-box" id="weather"></div>
+
+    <script>
+        async function getWeather() {
+            let city = document.getElementById("city").value;
+
+            if (city === "") {
+                alert("Enter city name");
+                return;
+            }
+
+            // Replace YOUR_API_KEY with actual key
+            let apiKey = "YOUR_API_KEY";
+            let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+            try {
+                let response = await fetch(url);
+                let data = await response.json();
+
+                if (data.cod !== 200) {
+                    document.getElementById("weather").innerHTML = "City not found";
+                    return;
+                }
+
+                document.getElementById("weather").innerHTML = `
+                    <h3>${data.name}</h3>
+                    <p>Temperature: ${data.main.temp} °C</p>
+                    <p>Weather: ${data.weather[0].description}</p>
+                    <p>Humidity: ${data.main.humidity}%</p>
+                    <p>Wind Speed: ${data.wind.speed} m/s</p>
+                `;
+            } catch (error) {
+                document.getElementById("weather").innerHTML = "Error fetching data";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
