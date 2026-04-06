@@ -1,0 +1,66 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>C. DHESHIK REDDY</h2>
+    <h3>REG NO: 24BCT0238</h3>
+
+    <h1>Grade Calculator</h1>
+
+    <input type="number" id="m1" placeholder="Enter Subject 1 marks"><br>
+    <input type="number" id="m2" placeholder="Enter Subject 2 marks"><br>
+    <input type="number" id="m3" placeholder="Enter Subject 3 marks"><br>
+
+    <button onclick="calculateGrade()">Calculate Grade</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateGrade() {
+            let m1 = Number(document.getElementById("m1").value);
+            let m2 = Number(document.getElementById("m2").value);
+            let m3 = Number(document.getElementById("m3").value);
+
+            let avg = (m1 + m2 + m3) / 3;
+            let grade = "";
+
+            if (avg >= 90) grade = "A+";
+            else if (avg >= 75) grade = "A";
+            else if (avg >= 60) grade = "B";
+            else if (avg >= 50) grade = "C";
+            else grade = "Fail";
+
+            document.getElementById("result").innerHTML =
+                "Average: " + avg.toFixed(2) + " | Grade: " + grade;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
